@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+
+/* Importando layouts */
+import Layout from "../layouts/Layout.astro";
+
+import localLogoFotos from "../images/fotosgratis-logo.svg";
+import localLogoMinilink from "../images/minilink-logo.svg";
+import localLogoNave from "../images/navedepapel-logo.svg";
+import localLogoRenova from "../images/renovadesign-logo.svg";
+
+/* Importando componentes */
+import ListPosts from "../components/ListPosts.astro";
+import IconSocial from "../components/IconSocial.astro";
+import InfoContact from "../components/InfoContact.astro";
+
+/* Componente MainTitlesView H2 visible*/
+const { visible = true } = Astro.props;
+---
+
+<Layout {visible}>
+	<main>
+		<section>
+			<article class="sushi-container">
+				<header>
+					<h2>Proyectos</h2>
+				</header>
+
+				<div class="omakase">
+					<h3>Propios</h3>
+					<p>
+						Te recomiendo algunas páginas que te puedan interesar como:
+						Agregarte en un <strong>directorio de profesionales</strong> y empresas,
+						si necesitas
+						<strong>recursos fotográficos</strong>, si te gustan las <strong
+							>naves de papel</strong
+						> o enterarte de <strong>noticias de tecnología</strong>.
+					</p>
+				</div>
+
+				<div class="tuna marcas-container">
+					<div>
+						<a
+							href="https://www.fotos.edgarcornejo.com"
+							title="Fotos Gratis"
+							target="_blank"
+						>
+							<Image
+								src={localLogoFotos}
+								alt="Letras F y G en mayúsculas con degradado"
+							/>
+						</a>
+					</div>
+
+					<div>
+						<a
+							href="https://www.minilink.edgarcornejo.com"
+							title="Minilink Soluciones"
+							target="_blank"
+						>
+							<Image
+								src={localLogoMinilink}
+								alt="M en mayúscula de color negro"
+							/>
+						</a>
+					</div>
+
+					<div>
+						<a
+							href="https://www.navedepapel.edgarcornejo.com"
+							title="Nave de Papel"
+							target="_blank"
+						>
+							<Image
+								src={localLogoNave}
+								alt="heptágono anaranjado con icono de nave"
+							/>
+						</a>
+					</div>
+
+					<div>
+						<a
+							href="https://renovadesign.blogspot.pe"
+							title="Renova Design"
+							target="_blank"
+						>
+							<Image src={localLogoRenova} alt="texto negro sin fondo" />
+						</a>
+					</div>
+				</div>
+			</article>
+		</section>
+
+		<section>
+			<article class="sushi-container">
+				<header>
+					<h2>Publicaciones</h2>
+				</header>
+
+				<div class="omakase">
+					<h3>Recientes</h3>
+					<p>
+						Me gusta <strong>compartir</strong> lo que conozco, si tienes alguna
+						duda posiblemente tengo algunas <strong>recomendaciones</strong> que
+						hago en estas publicaciones.
+					</p>
+				</div>
+
+				<div class="tuna">
+					<ListPosts />
+				</div>
+			</article>
+		</section>
+
+		<section>
+			<article class="sushi-container">
+				<header>
+					<h2>Contacto</h2>
+				</header>
+
+				<div class="omakase">
+					<h3>Hola</h3>
+					<p>
+						Actualmente me encuentro en <strong>Arequipa - Perú</strong>.
+						Consultas o presupuestos, envía un correo a <strong
+							>info@edgarcornejo.com</strong
+						>
+					</p>
+				</div>
+
+				<div class="tuna">
+					<h4>Enlaces</h4>
+					<InfoContact />
+
+					<h4>Redes Sociales</h4>
+					<IconSocial />
+				</div>
+			</article>
+		</section>
+	</main>
+</Layout>

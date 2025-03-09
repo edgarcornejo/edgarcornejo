@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import { formatPost, slugify } from "../js/formateo";
+
+const publicaciones = await getCollection("publicaciones");
+const lista = formatPost(publicaciones);
+const allCategories = lista
+	.map((cat: any) => cat.data.category.toLowerCase())
+	.flat();
+
+const processedCats = allCategories.reduce((acc: any, category: any) => {
+	const value = acc[category] || 0;
+
+	return {
+		...acc,
+		[category]: value + 1,
+	};
+}, {});
+const { showCount } = Astro.props;
+---
+
+<div class="lista-enlaces">
+	{
+		Object.entries(processedCats).map(([key, val]) => (
+			<a href={`/category/${slugify(key)}/`} title={key}>
+				{key} <strong>{showCount && `${val}`}</strong>
+			</a>
+		))
+	}
+</div>

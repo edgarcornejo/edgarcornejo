@@ -1,0 +1,100 @@
+---
+
+---
+
+<div class="wrapper-cookies">
+	<header><h5>Este sitio web utiliza cookies</h5></header>
+
+	<div class="data">
+		<p>
+			Este sitio web utiliza cookies para su funcionamiento, análisis y
+			publicidad.
+		</p>
+		<p>
+			Si continúa navegando en este sitio web, acepta nuestra <a
+				href="/cookies/"
+				title="política de cookies">política de cookies</a
+			>.
+		</p>
+	</div>
+
+	<div class="buttons">
+		<button class="btn" id="btn-reject">Rechazar</button>
+		<button class="btn" id="btn-accept">Aceptar</button>
+	</div>
+</div>
+
+<script src="../js/cookies.js"></script>
+
+<style>
+	.wrapper-cookies {
+		position: fixed;
+		bottom: 52px;
+		left: -100vw;
+		max-width: 20vw;
+		width: 100%;
+		background: #f2f2f2;
+		color: #131853;
+		border-radius: clamp(6px, 1vw, 1.1vw);
+		padding: clamp(16px, 1vw, 1.1vw);
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		transition: left 0.6s ease;
+		box-shadow:
+			0 3px 6px rgba(19, 24, 83, 0.16),
+			0 3px 6px rgba(19, 24, 83, 0.23);
+		&.show {
+			left: 20px;
+		}
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		h5 {
+			font-weight: 700;
+			text-align: center;
+		}
+	}
+
+	p {
+		font-weight: 300;
+		margin-bottom: clamp(16px, 1vw, 1.1vw);
+		a {
+			border-bottom: solid clamp(1px, 0.2vw, 0.3vw) #131853;
+			&:hover {
+				border: 0;
+			}
+		}
+	}
+
+	.buttons {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.btn {
+			width: calc(100% / 2 - 10px);
+			padding: 8px;
+			border-radius: clamp(6px, 1vw, 1.1vw);
+			background: #2b3eff;
+			color: #f2f2f2;
+			cursor: pointer;
+			&:hover {
+				background: #131853;
+			}
+			&:first-child {
+				background: #f2f2f2;
+				color: #131853;
+				outline: solid clamp(1px, 0.1vw, 0.2vw) #2b3eff;
+			}
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.wrapper-cookies {
+			max-width: 345px;
+		}
+	}
+</style>

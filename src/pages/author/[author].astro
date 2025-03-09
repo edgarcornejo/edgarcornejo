@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { formatPost, slugify } from "../../js/formateo";
+import PostPreview from "../../components/PostPreview.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("publicaciones");
+	const lista = formatPost(posts);
+	const allAuthors = [
+		...new Set(lista.map((post: any) => post.data.author).flat()),
+	];
+	return allAuthors.map((author) => {
+		const authorPosts = lista.filter(
+			(post: any) => post.data.author === author
+		);
+		return {
+			params: { author: slugify(author) },
+			props: {
+				authorName: author,
+				posts: authorPosts,
+			},
+		};
+	});
+}
+
+const { posts, authorName } = Astro.props;
+---
+
+<Layout
+	title={"Publicaciones de " + authorName}
+	url="https://www.edgarcornejo.com/author/edgar-cornejo/">
+	<main>
+		<section>
+			<article>
+				<div class="wrapper-post">
+					{posts.map((post: any) => <PostPreview post={post} />)}
+				</div>
+			</article>
+		</section>
+	</main>
+</Layout>

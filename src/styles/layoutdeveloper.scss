@@ -1,0 +1,523 @@
+@charset "UTF-8";
+
+/* importando reset y variables */
+@import "reset", "variables";
+
+/* Importando fuentes tipográficas */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/Roboto-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/TitilliumWeb-Bold.ttf) format("truetype");
+}
+
+/* Colors */
+$devWhite: rgb(242, 242, 242);
+$devGrey: rgb(123, 123, 123);
+$devLightGrey: rgb(196, 196, 196);
+$devGrape: rgb(91, 13, 190);
+$devOrange: rgb(255, 165, 0);
+
+/* Estilos ScrollBar */
+html {
+  scrollbar-color: $devOrange $devGrape;
+  scrollbar-width: thin;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Titillium Web';
+  font-weight: 700;
+}
+
+a {
+  transition: all .4s ease;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  color: $devGrape;
+  font-size: clamp(18px, 1vw, 1.1vw);
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: $devWhite;
+  font-family: "Roboto", Helvetica, sans-serif;
+}
+
+/* Cabecera principal */
+#main-header {
+  width: 100%;
+  background-image: linear-gradient(-45deg, rgba($devGrape, 1) 0%, rgba($devGrape, .8) 53%, rgba($devGrape, .6) 100%), url("/developer/top-back.jpg");
+  background-size: cover;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  color: $devWhite;
+  border-radius: 0 0 $radius $radius;
+}
+
+/* Envoltura de logo, nav y contact */
+#wrapper-logo-nav-contact-title {
+  width: 94%;
+  margin: 0 auto;
+  padding: $twospace 0 $twospace 0;
+  display: grid;
+  grid-template-columns: 5vw 1fr 5vw;
+  align-items: center;
+}
+
+/* Logotipo en Header */
+#logo {
+  width: 100%;
+  display: flex;
+  svg {
+    width: 3vw;
+    min-width: 48px;
+    height: auto;
+    position: relative;
+    animation: logo .6s ease;
+  }
+}
+
+/* Animation logo */
+@keyframes logo {
+  0% {
+    left: -100px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+/* Menu en Header*/
+nav {
+  display: flex;
+  align-items: center;
+  animation: menu .6s ease both;
+  animation-delay: .5s;
+  .open-menu, .closed-menu {
+    user-select: none;
+    cursor: pointer;
+    display: block;
+    svg {
+      min-width: 48px;
+      width: 2vw;
+      height: auto;
+    }
+  }
+  .closed-menu {
+    display: none;
+  }
+  menu {
+    display: none;
+    gap: $onespace;
+  }
+  a {
+    color: $devWhite;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.input-menu {
+  display: none;
+  &:checked ~ nav {
+    .open-menu {
+      display: none;
+    }
+    .closed-menu {
+      display: block;
+    }
+    menu {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/* Animation Menu */
+@keyframes menu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* Contacto en Header */
+#contact {
+  justify-content: flex-end;
+  display: flex;
+  gap: $onespace;
+  a {
+    color: $devWhite;
+    background-color: $devOrange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $onespace;
+    border-radius: $radius;
+    transition: all .4s ease;
+    position: relative;
+    &:hover {
+      background-color: $devGrape;
+    }
+    &:first-child {
+      animation: contacto .5s ease-in both;
+      animation-delay: 1s;
+    }
+    &:last-child {
+      animation: contacto .5s ease-in both;
+      animation-delay: .8s;
+    }
+  }
+}
+
+/* Animation Contact */
+@keyframes contacto {
+  0% {
+    transform: rotate(-90deg);
+    opacity: 0;
+    left: -200px;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 100%;
+    left: 0;
+  }
+}
+
+/* Envoltura de H1 y H2*/
+#wrapper-title {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $onespace;
+  padding-top: 20vh;
+  position: relative;
+  animation: ttob .5s ease-in both;
+  animation-delay: 1.2s;
+  h1 {
+    font-size: clamp(32px, 2.6vw, 2.6vw);
+  }
+  h2 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: clamp(28px, 2vw, 2vw);
+  }
+}
+
+/* Animation Titulo*/
+@keyframes ttob {
+  0% {
+    opacity: 0;
+    top: -100px;
+  }
+  100% {
+    opacity: 100%;
+    top: 0;
+  }
+}
+
+/* Main Section*/
+#wrapper-articles {
+  padding: $onespace 0 $onespace 0;
+  margin: 0 auto;
+  article {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    margin-bottom: $onespace;
+    view-timeline-name: --background;
+    view-timeline-axis: block;
+    animation-timeline: --background;
+    animation-name: move;
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+    &:nth-child(even) {
+      justify-content: flex-end;
+      text-align: left;
+    }
+    &:nth-child(odd) {
+      text-align: right;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    border-radius: 8vw;
+  }
+  100% {
+    border-radius: 0;
+  }
+}
+
+.wrap-article {
+  width: 50%;
+  padding: $fourtspace;
+  h2 {
+    font-size: 5vw;
+    line-height: 1;
+    view-timeline-name: --title;
+    view-timeline-axis: block;
+    animation-timeline: --title;
+    animation-name: aparecer;
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+    position: relative;
+    background-clip: text;
+    color: transparent;
+    background-size: cover;
+    background-position: center center;
+    text-transform: uppercase;
+    margin-bottom: $onespace;
+  }
+  h3 {
+    font-size: clamp(24px, 1.6vw, 1.6vw);
+    padding-top: $onespace;
+    color: $devGrey;
+    view-timeline-name: --subtitle;
+    view-timeline-axis: block;
+    animation-timeline: --subtitle;
+    animation-name: starttoend;
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+    position: relative;
+  }
+  p {
+    display: inline-block;
+    hyphens: none;
+    color: $devGrey;
+    margin-top: $onespace;
+    strong {
+      font-weight: 500;
+    }
+  }
+}
+
+@keyframes aparecer {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes starttoend {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.bot-call {
+  background-color: $devGrape;
+  display: inline-block;
+  color: $devWhite;
+  padding: $onespace;
+  margin-bottom: $onespace;
+  border-radius: $radius;
+  &:hover {
+    color: $devGrape;
+    background-color: $devOrange;
+  }
+}
+
+/*background article*/
+#wrapper-articles {
+  article {
+    &:nth-child(1) {
+      background-image: url("/developer/iam.webp");
+      h2 {
+        background-image: url("/developer/iam.webp");
+      }
+    }
+    &:nth-child(2) {
+      background-image: url("/developer/services.webp");
+      background-position: 0 center;
+      h2 {
+        background-image: url("/developer/services.webp");
+      }
+    }
+    &:nth-child(3) {
+      background-image: url("/developer/contact.webp");
+      h2 {
+        background-image: url("/developer/services.webp");
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  padding: $fourtspace 0 $fourtspace 0;
+  background-color: $devGrape;
+  color: $devWhite;
+  &:before {
+    border-radius: 50%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -2vw;
+    left: 2vw;
+    width: 4vw;
+    height: 4vw;
+    min-width: 48px;
+    min-height: 48px;
+    background: url("/developer/edgarcornejo.svg") no-repeat center center $devOrange;
+    background-size: 70%;
+    box-shadow: $shadow rgba($devGrape, .6);
+    transition: all .6s ease;
+  }
+}
+
+#wrapper-uls-footer {
+  margin: 0 auto;
+  width: 94%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ul-footer {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: $onespace;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h3 {
+    font-size: clamp(20px, 1.4vw, 1.5vw);
+    text-align: right;
+    color: $devOrange;
+    border-bottom: solid $thinline $devOrange;
+    padding: $onespace;
+    margin-bottom: $onespace;
+  }
+  li {
+    margin: $onespace;
+  }
+  a {
+    color: $devWhite;
+    outline: solid $thinline $devWhite;
+    padding: $onespace;
+    border-radius: $radius;
+    display: inline-block;
+    hyphens: none;
+    &:hover {
+      color: $devGrape;
+      background-color: $devOrange;
+      outline: 0;
+    }
+  }
+}
+
+#copyright {
+  margin-top: $twospace;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width:1024px) {
+  #wrapper-logo-nav-contact-title {
+    display: flex;
+    flex-direction: column;
+    gap: $onespace;
+  }
+  
+  #logo {
+    justify-content: center;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  #wrapper-title {
+    padding-top: $twospace;
+  }
+
+  #wrapper-articles {
+    article {
+      min-height: auto;
+      &:nth-child(even) {
+        justify-content: flex-start;
+        text-align: left;
+      }
+      &:nth-child(odd) {
+        text-align: left;
+      }
+    }
+  }
+
+  .wrap-article {
+    width: 90%;
+    padding: $onespace;
+    margin: 0 auto;
+    h2 {
+      padding-bottom: $twospace;
+      animation: none;
+    }
+    h3 {
+      animation: none;
+    }
+  }
+
+  #wrapper-articles {
+    article {
+      &:nth-child(1) {
+        background: none;
+      }
+      &:nth-child(2) {
+        background: none;
+      }
+      &:nth-child(3) {
+        background: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  #wrapper-uls-footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .ul-footer {
+    width: 100%;
+  }
+}

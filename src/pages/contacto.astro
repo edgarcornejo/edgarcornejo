@@ -1,0 +1,52 @@
+---
+/* Importando layouts */
+import Layout from "../layouts/Layout.astro";
+
+/* Importando componentes */
+import FormView from "../components/FormView.astro";
+import IconSocial from "../components/IconSocial.astro";
+import InfoContact from "../components/InfoContact.astro";
+---
+
+<Layout
+	title="Contacto"
+	description="Actualmente me encuentro en Arequipa, Perú. El horario de atención es de Lunes a Viernes desde las 09:00 a.m. a 15:00 p.m. Solo atención en línea. Consultas o presupuestos, envía un correo a info@edgarcornejo.com"
+	url="https://www.edgarcornejo.com/contacto/">
+	<main>
+		<section>
+			<article class="sushi-container">
+				<header>
+					<h2>Me encantaría escucharte</h2>
+				</header>
+
+				<div class="omakase">
+					<h3>¿Como?</h3>
+					<p>
+						Actualmente me encuentro en Arequipa, Perú. El horario de atención
+						es de Lunes a Viernes desde las 09:00 a.m. a 15:00 p.m. Solo
+						atención en línea. Consultas o presupuestos, envía un correo a
+						<a
+							href="mailto:info@edgarcornejo.com"
+							title="info@edgarcornejo.com"
+							target="_blank">info@edgarcornejo.com</a
+						> o deja tu mensaje por WhatsApp: <a
+							href="https://wa.me/message/EEEHZULZQV5QG1"
+							target="_blank"
+							title="Envía un mensaje a Edgar">Envía un mensaje a Edgar</a
+						>
+					</p>
+				</div>
+
+				<div class="tuna">
+					<FormView />
+				</div>
+
+				<h3>Enlaces</h3>
+				<InfoContact />
+
+				<h3>Redes Sociales</h3>
+				<IconSocial />
+			</article>
+		</section>
+	</main>
+</Layout>

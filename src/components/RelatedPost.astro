@@ -1,0 +1,21 @@
+---
+import { formatDate } from "../js/formateo";
+const { relatedPost } = Astro.props;
+---
+
+<h4>Publicación Relacionada</h4>
+{
+	relatedPost.map((post: any) => (
+		<div id="related-post">
+			<a href={post.slug}>
+				{post.data.title}
+				<span>
+					{post.data.author} •
+					<time datetime={formatDate(post.data.date)}>
+						{formatDate(post.data.date)}
+					</time>
+				</span>
+			</a>
+		</div>
+	))
+}

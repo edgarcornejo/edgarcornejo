@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import { formatPost, slugify } from "../js/formateo";
+const publicaciones = await getCollection("publicaciones");
+const lista = formatPost(publicaciones);
+---
+
+<p class="lista-enlaces">
+	{
+		lista.map((post: any, index: any) => {
+			const { slug, data } = post;
+			const { title } = data;
+			return index < 6 ? (
+				<a href={`/publicaciones/${slugify(slug)}/`} title={title}>
+					{title}
+				</a>
+			) : null;
+		})
+	}
+	<a href="/publicaciones/" class="ultimo-enlace" title="Ver más">Ver más</a>
+</p>

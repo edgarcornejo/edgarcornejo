@@ -1,0 +1,42 @@
+---
+/* Importando layouts */
+import Layout from "../layouts/Layout.astro";
+
+/* Importando componentes */
+import IconSocial from "../components/IconSocial.astro";
+import InfoContact from "../components/InfoContact.astro";
+---
+
+<Layout title="Gracias" url="https://www.edgarcornejo.com/gracias/">
+	<main>
+		<section>
+			<article>
+				<header>
+					<h2>Gracias por su mensaje</h2>
+				</header>
+
+				<div class="parrafo">
+					<p>
+						Le responderé lo mas pronto posible, también puedes enviar un
+						mensaje por WhatsApp: <a
+							href="https://wa.me/message/EEEHZULZQV5QG1"
+							target="_blank"
+							title="Envía un mensaje a Edgar">Envía un mensaje a Edgar</a
+						>
+						Consultas o presupuestos, envía un correo a <a
+							href="mailto:info@edgarcornejo.com"
+							title="info@edgarcornejo.com"
+							target="_blank">info@edgarcornejo.com</a
+						>
+					</p>
+				</div>
+
+				<h3>Enlaces</h3>
+				<IconSocial />
+
+				<h3>Enlaces</h3>
+				<InfoContact />
+			</article>
+		</section>
+	</main>
+</Layout>

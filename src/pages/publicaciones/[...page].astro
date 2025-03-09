@@ -1,0 +1,57 @@
+---
+/* importando layouts */
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+/* Importando componentes */
+import PostPreview from "../../components/PostPreview.astro";
+import Pagination from "../../components/Pagination.astro";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+import AdsArea from "../../components/AdsArea.astro";
+import { formatPost } from "../../js/formateo";
+
+interface Props {
+	page: any;
+	blog: boolean;
+}
+
+export async function getStaticPaths({ paginate }: any) {
+	const publicaciones = await getCollection("publicaciones");
+	const lista = formatPost(publicaciones);
+
+	return paginate(lista, {
+		pageSize: 6,
+	});
+}
+
+const { page, blog = true } = Astro.props;
+---
+
+<Layout
+	title="Publicaciones"
+	description="Blog de diseño, desarrollo, tecnología, seo, marketing online y trucos."
+	url="https://www.edgarcornejo.com/publicaciones/"
+	{blog}>
+	<main>
+		<section>
+			<article>
+				<Pagination prevURL={page.url.prev} nextURL={page.url.next} />
+
+				<div class="wrapper-post">
+					{page.data.map((post: any) => <PostPreview post={post} />)}
+				</div>
+
+				<Pagination prevURL={page.url.prev} nextURL={page.url.next} />
+
+				<aside class="aside-bottom">
+					<h4>Categorías:</h4>
+
+					<CategoryCloud showCount={true} />
+
+					<AdsArea />
+				</aside>
+			</article>
+		</section>
+	</main>
+</Layout>

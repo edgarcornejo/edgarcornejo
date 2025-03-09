@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import { slugify, formatDate } from "../../js/formateo";
+
+import AdsArea from "../../components/AdsArea.astro";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+import ListPosts from "../../components/ListPosts.astro";
+import RelatedPost from "../../components/RelatedPost.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("publicaciones");
+	return posts.map((post) => ({
+		params: { id: post.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { data, slug } = post;
+const { title, author, description, image, date, category, tags } = data;
+
+const posts = await getCollection("publicaciones");
+const relatedPost = posts
+	.filter(
+		(post: any) => post.data.category === category && post.data.title !== title
+	)
+	.slice(0, 1);
+
+const { Content } = await render(post);
+---
+
+<Layout
+	title={title}
+	description={description}
+	keywords={tags}
+	author={author}
+	image={image}
+	imagealt={title}
+	url={"https://www.edgarcornejo.com/publicaciones/" + slug + "/"}
+	category={category}
+	type="article">
+	<main>
+		<section class="wrapper-content">
+			<article id="wrapper-post">
+				<Content />
+				<AdsArea />
+			</article>
+			<aside class="aside-blog">
+				<h4>Información de la publicación</h4>
+				<div class="info-post">
+					<p>
+						<strong>Autor:</strong>
+						<a href={`/author/${slugify(author)}/`} title={author}>{author}</a>
+					</p>
+					<p>
+						<strong>Categoría:</strong>
+						<a href={`/category/${slugify(category)}/`} title={category}
+							>{category}</a
+						>
+					</p>
+					<p>
+						<strong>Fecha de publicación:</strong>
+						<time datetime="{date}">{formatDate(date)}</time>
+					</p>
+					<p>
+						<strong>Etiquetas:</strong>
+						{tags.map((tag: any) => <span>{tag}, </span>)}
+					</p>
+				</div>
+
+				<RelatedPost {relatedPost} />
+
+				<h4>Categorías</h4>
+				<CategoryCloud />
+
+				<h4>Publicaciones</h4>
+				<ListPosts />
+			</aside>
+		</section>
+	</main>
+</Layout>

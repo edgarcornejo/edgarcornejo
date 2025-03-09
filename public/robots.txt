@@ -1,0 +1,6 @@
+# robotstxt.org/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.edgarcornejo.com/sitemap.xml

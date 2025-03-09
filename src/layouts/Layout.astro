@@ -1,0 +1,49 @@
+---
+/* Importando estilos */
+import "../styles/layout.css";
+
+/* Importando componentes */
+import Head from "../layouts/Head.astro";
+import MainHeaderView from "../components/MainHeaderView.astro";
+import FooterView from "../components/FooterView.astro";
+import CookiesView from "../components/CookiesView.astro";
+
+/* SEO */
+const {
+	title = "Edgar Cornejo",
+	description = "Mi nombre es Edgar Cornejo ofrezco los servicios de diseño gráfico, desarrollo web front-end y posicionamiento en Internet.",
+	keywords = "diseño web, desarrollo de páginas web, diseñador gráfico, posicionamiento en Internet, frontend",
+	url = "www.edgarcornejo.com",
+	image = "https://www.edgarcornejo.com/logo-edgarcornejo.webp",
+	imagealt = "Logotipo Edgar Cornejo",
+	author = "Edgar Cornejo",
+	type = "Website",
+	visible,
+	blog,
+} = Astro.props;
+---
+
+<html lang="es">
+	<Head
+		{title}
+		{description}
+		{keywords}
+		{url}
+		{image}
+		{imagealt}
+		{type}
+		{author}
+	/>
+
+	<body itemscope itemtype="http://data-vocabulary.org/Person">
+		<MainHeaderView {title} {visible} {blog} {description} />
+
+		<section id="main-content">
+			<slot />
+		</section>
+
+		<FooterView {author} />
+
+		<CookiesView />
+	</body>
+</html>

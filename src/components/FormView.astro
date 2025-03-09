@@ -1,0 +1,107 @@
+---
+
+---
+
+<form
+	name="contact"
+	action="/gracias/"
+	method="POST"
+	data-netlify="true"
+	data-netlify-recaptcha="true"
+>
+	<fieldset>
+		<legend>Hola, que necesitas</legend>
+		<label
+			>Nombre: <input
+				type="text"
+				name="name"
+				placeholder="Escriba su nombre"
+				required
+			/></label
+		>
+		<label
+			>Correo: <input
+				type="email"
+				name="email"
+				placeholder="Escriba su correo"
+				required
+				minlength="8"
+			/></label
+		>
+		<label
+			>Mensaje: <textarea
+				name="message"
+				placeholder="Escriba su mensaje"
+				required></textarea></label
+		>
+		<div data-netlify-recaptcha="true" id="recaptcha"></div>
+		<button type="submit">Enviar</button>
+		<p>Llene correctamente el formulario, para poder enviar el mensaje.</p>
+	</fieldset>
+</form>
+
+<style>
+	form {
+		width: 100%;
+		max-width: 1024px;
+		height: auto;
+		font-size: clamp(16px, 1.2vw, 1.3vw);
+		margin: clamp(16px, 1vw, 1.1vw) auto clamp(16px, 2vw, 2.1vw) auto;
+		hyphens: none;
+		fieldset {
+			border: solid clamp(1px, 0.2vh, 0.3vh) #131853;
+			border-radius: clamp(3px, 0.3vw, 0.4vw);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+			padding: clamp(16px, 1vw, 1.1vw);
+		}
+		legend {
+			text-align: uppercase;
+			font-size: clamp(18px, 1.4vw, 1.5vw);
+			padding: clamp(6px, 1vw, 1.1vw);
+			margin-left: clamp(6px, 1vw, 1.1vw);
+		}
+		label {
+			width: 100%;
+		}
+		input,
+		textarea {
+			width: 100%;
+			margin: clamp(16px, 1vw, 1.1vw) 0 clamp(16px, 1vw, 1.1vw) 0;
+			outline: solid clamp(1px, 0.2vh, 0.3vh) #131853;
+			border: 0;
+			border-radius: clamp(3px, 0.3vw, 0.4vw);
+			padding: clamp(16px, 1vw, 1.1vw);
+		}
+		input:focus {
+			outline: solid clamp(2px, 0.3vh, 0.4vh) #2b3eff;
+		}
+		input:invalid {
+			outline: solid clamp(2px, 0.3vh, 0.4vh) #e63d67;
+		}
+		#recaptcha {
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #f2f2f2;
+			padding: clamp(16px, 1vw, 1.1vw);
+			outline: solid clamp(1px, 0.2vh, 0.3vh) #131853;
+			border-radius: clamp(3px, 0.3vw, 0.4vw);
+		}
+		button {
+			width: 100%;
+			background: #131853;
+			color: #f2f2f2;
+			margin: clamp(16px, 1vw, 1.1vw) 0 clamp(16px, 1vw, 1.1vw) 0;
+			border-radius: clamp(3px, 0.3vw, 0.4vw);
+			padding: clamp(16px, 1vw, 1.1vw);
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+</style>

@@ -1,0 +1,28 @@
+---
+import { formatDate, slugify } from "../js/formateo";
+
+const { post } = Astro.props;
+---
+
+<article>
+	<a href={`/publicaciones/${slugify(post.slug)}/`} title={post.data.title}>
+		<h3>{post.data.title}</h3>
+
+		<figure>
+			<img src={post.data.image} alt={post.data.title} loading="lazy" />
+			<figcaption>
+				Publicado el: <br />
+				<time datetime={formatDate(post.data.date)}
+					><strong>{formatDate(post.data.date)}</strong></time
+				>
+			</figcaption>
+		</figure>
+
+		<div>
+			<p>
+				{post.data.description.slice(0, 180)}...
+			</p>
+			<small>Categoría: <strong>{post.data.category}</strong></small>
+		</div>
+	</a>
+</article>

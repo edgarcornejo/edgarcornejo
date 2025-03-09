@@ -1,0 +1,39 @@
+---
+/* importando estilos */
+import "../styles/layoutdeveloper.css";
+
+/* importando componentes */
+import Head from "./Head.astro";
+import CookiesView from "../components/CookiesView.astro";
+
+/* SEO */
+const {
+	title = "Desarrollador Web Frontend Edgar Cornejo frontend developer, diseñador web, freelance, paginas web",
+	description = "Desarrollo, diseño y maqueto experiencias para usuarios digitales, que transmiten el mensaje correcto de un producto o servicio. Orientó todos mis proyectos al posicionamiento en Internet y su rentabilidad.",
+	keywords = "paginas web, WordPress, desarrollador web, Front end developer, diseñador web, freelance",
+	url = "https://www.edgarcornejo.com/developer/",
+	image = "https://www.edgarcornejo.com/logo-edgarcornejo.webp",
+	imagealt = "Logotipo Edgar Cornejo",
+	author = "Edgar Cornejo",
+	type = "Website",
+} = Astro.props;
+---
+
+<html lang="es">
+	<Head
+		{title}
+		{description}
+		{keywords}
+		{url}
+		{image}
+		{imagealt}
+		{author}
+		{type}
+	/>
+
+	<body>
+		<slot />
+
+		<CookiesView />
+	</body>
+</html>

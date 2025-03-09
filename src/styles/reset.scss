@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Opt-in the whole page to interpolate sizes to/from keywords */
+:root,
+interpolate-size allow-keywords,
+body {
+  min-height: 100dvh;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p {
+  text-wrap: pretty;
+  max-inline-size: 50ch;
+  text-box: trim-both cap alphabetic;
+}
+a {
+  text-decoration: none;
+  text-box: trim-both cap alphabetic;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  text-box: trim-both cap alphabetic;
+}
+img,
+video,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+/* Responsive */
+@viewport {
+  width: device-width;
+}
+/* View Transition */
+@view-transition {
+  navigation: auto;
+}

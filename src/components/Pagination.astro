@@ -1,0 +1,20 @@
+---
+const { prevURL, nextURL } = Astro.props;
+---
+
+<nav class="pagination">
+	{
+		prevURL && (
+			<a href={prevURL} title="Atrás">
+				Atrás
+			</a>
+		)
+	}
+	{
+		nextURL && (
+			<a href={nextURL} title="Siguiente">
+				Siguiente
+			</a>
+		)
+	}
+</nav>

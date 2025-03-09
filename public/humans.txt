@@ -1,0 +1,21 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Edgar Cornejo
+    Desarrollador Web Front end
+    info@edgarcornejo.com
+    @devcornejo
+    Arequipa, Arequipa, Perú
+
+
+# THANKS
+
+    https://astro.build/
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Astro
+    Visual Studio Code, Prepros

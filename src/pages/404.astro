@@ -1,0 +1,36 @@
+---
+/* Importando layouts */
+import Layout from "../layouts/Layout.astro";
+
+/* Importando componentes */
+import IconSocial from "../components/IconSocial.astro";
+import InfoContact from "../components/InfoContact.astro";
+---
+
+<Layout
+	title="Página no encontrada"
+	description="La página que está intentando ver no existe, o actualmente no está disponible."
+	url="https://www.edgarcornejo.com/404/">
+	<main>
+		<section>
+			<article>
+				<header>
+					<h2>Error 404</h2>
+				</header>
+
+				<div class="parrafo">
+					<p>
+						La página que está intentando ver no existe, o actualmente no está
+						disponible.
+					</p>
+				</div>
+
+				<h3>Redes Sociales</h3>
+				<IconSocial />
+
+				<h3>Enlaces</h3>
+				<InfoContact />
+			</article>
+		</section>
+	</main>
+</Layout>

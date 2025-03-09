@@ -1,0 +1,47 @@
+---
+/* importando estilos */
+import "../styles/layoutdesigner.css";
+
+/* importando componentes */
+import Head from "./Head.astro";
+import Header from "../components/designer/Header.astro";
+import Footer from "../components/designer/Footer.astro";
+import CookiesView from "../components/CookiesView.astro";
+
+/* SEO */
+const {
+	title = "Diseñador Gráfico Edgar Cornejo",
+	description = "Es un gusto saludarte y darte la bienvenida a mi web de diseñador gráfico, estoy aquí para ofrecerte mis servicios.",
+	keywords = "diseñador gráfico, diseñador web, graphic designer, freelance, diseño de logotipos, afiches",
+	url = "https://www.edgarcornejo.com/designer/",
+	image = "https://www.edgarcornejo.com/logo-edgarcornejo.webp",
+	imagealt = "Logotipo Edgar Cornejo",
+	author = "Edgar Cornejo",
+	type = "Website",
+} = Astro.props;
+---
+
+<html lang="es">
+	<Head
+		{title}
+		{description}
+		{keywords}
+		{url}
+		{image}
+		{imagealt}
+		{author}
+		{type}
+	/>
+
+	<body>
+		<main id="main-content">
+			<Header />
+
+			<slot />
+
+			<Footer {author} />
+		</main>
+
+		<CookiesView />
+	</body>
+</html>

@@ -3,40 +3,24 @@
 ---
 
 <form
-	name="contact"
-	action="/gracias/"
-	method="POST"
-	data-netlify="true"
-	data-netlify-recaptcha="true"
+  action="https://formspree.io/f/xblgjzoy"
+  method="POST"
 >
 	<fieldset>
 		<legend>Hola, que necesitas</legend>
-		<label
-			>Nombre: <input
-				type="text"
-				name="name"
-				placeholder="Escriba su nombre"
-				required
-			/></label
-		>
-		<label
-			>Correo: <input
-				type="email"
-				name="email"
-				placeholder="Escriba su correo"
-				required
-				minlength="8"
-			/></label
-		>
-		<label
-			>Mensaje: <textarea
-				name="message"
-				placeholder="Escriba su mensaje"
-				required></textarea></label
-		>
-		<div data-netlify-recaptcha="true" id="recaptcha"></div>
+		<label>
+			Nombre:
+			<input type="text" name="name" placeholder="Nombre" required>
+		</label>
+		<label>
+			Correo:
+			<input type="email" name="email" placeholder="Correo" required>
+		</label>
+		<label>
+			Mensaje:
+			<textarea name="message" placeholder="Mensaje" required></textarea>
+		</label>
 		<button type="submit">Enviar</button>
-		<p>Llene correctamente el formulario, para poder enviar el mensaje.</p>
 	</fieldset>
 </form>
 

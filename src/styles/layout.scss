@@ -792,6 +792,9 @@ address {
 		overflow-x: auto;
 		margin-bottom: $onespace;
 	}
+	p {
+		padding-bottom: $twospace;
+	}
 }
 
 /* Container Iframe */

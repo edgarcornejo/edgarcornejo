@@ -9,6 +9,7 @@ import localLogoFotos from "../images/fotosgratis-logo.svg";
 import localLogoMinilink from "../images/minilink-logo.svg";
 import localLogoNave from "../images/navedepapel-logo.svg";
 import localLogoRenova from "../images/renovadesign-logo.svg";
+import localLogoLaboratorio from "../images/laboratorio-logo.svg";
 
 /* Importando componentes */
 import ListPosts from "../components/ListPosts.astro";
@@ -40,6 +41,15 @@ const { visible = true } = Astro.props;
 				</div>
 
 				<div class="tuna marcas-container">
+					<div>
+						<a
+							href="/laboratorio/"
+							title="Laboratorio"
+						>
+							<Image src={localLogoLaboratorio} alt="Logo de Laboratorio" />
+						</a>
+					</div>
+
 					<div>
 						<a
 							href="https://www.fotos.edgarcornejo.com"

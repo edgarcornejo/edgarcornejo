@@ -5,7 +5,7 @@ Portafolio y blog
 # Tecnologías
 
 - Astro
-  - CSS / Stylus
+  - CSS / SCSS
   - HTML / Markdown
   - TypeScript / JavaScript
 

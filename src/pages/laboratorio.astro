@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Laboratorio"
+	description="Repositorios en Github para desarrollo de temas de WordPress y otros proyectos."
+	url="https://www.edgarcornejo.com/laboratorio/"
+>
+	<main>
+
+    <header>
+      <h2>Repositorios en Github</h2>
+    </header>
+
+    <section>
+			<article>
+        <header>
+          <figure>
+            <img src="https://res.cloudinary.com/devox/image/upload/v1744139574/laboratorio/miniblockbasic_pwpepp.avif" alt="Mini Block Basic" loading="lazy">
+            <figcaption><h3>Mini Block Basic</h3></figcaption>
+          </figure>
+        </header>
+        <div>
+          <p>Base para que crear themes de WordPress en bloques.
+            <a href="https://github.com/edgarcornejo/miniblockbasic" target="_blank" title="miniblockbasic">miniblockbasic</a></p>
+        </div>
+			</article>
+
+      <article>
+        <header>
+          <figure>
+            <img src="https://res.cloudinary.com/devox/image/upload/v1744139734/laboratorio/base_xj79bv.avif" alt="Classic themes WordPress" loading="lazy">
+            <figcaption><h3>base</h3></figcaption>
+          </figure>
+        </header>
+        <div>
+          <p>Crea tus Classic themes de Wordpress con esta base.
+            <a href="https://github.com/edgarcornejo/base" target="_blank" title="base">base</a></p>
+        </div>
+			</article>
+
+      <article>
+        <header>
+          <figure>
+            <img src="https://res.cloudinary.com/devox/image/upload/v1744139253/laboratorio/peso-en-otro-planeta_af4ltl.avif" alt="Cuanto pesas en otro planeta" loading="lazy">
+            <figcaption><h3>Cuanto pesas en otro planeta</h3></figcaption>
+          </figure>
+        </header>
+        <div>
+          <p>Ingresa tú peso y selecciona el planeta, para saber tú peso en ese planta.
+            <a href="https://github.com/edgarcornejo/peso-en-otro-planeta" target="_blank" title="Peso en otro planeta">Peso en otro planeta</a></p>
+        </div>
+			</article>
+
+      <article>
+        <header>
+          <figure>
+            <img src="https://res.cloudinary.com/devox/image/upload/v1744138923/laboratorio/simple_airszz.avif" alt="Simple" loading="lazy">
+            <figcaption><h3>Simple</h3></figcaption>
+          </figure>
+        </header>
+        <div>
+          <p>Una breve muestra de SCSS/CSS y HTML.
+            <a href="https://github.com/edgarcornejo/Simple" target="_blank" title="Simple">Simple</a></p>
+        </div>
+			</article>
+		</section>
+
+	</main>
+</Layout>
+
+<style>
+  header h2 {
+    text-align: center;
+  }
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    gap: 1vw;
+  }
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    padding: clamp(16px, 2vw, 2vw);
+  }
+  img {
+    object-fit: cover;
+    object-position: top center;
+    aspect-ratio: 2/1;
+  }
+</style>

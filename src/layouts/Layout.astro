@@ -3,7 +3,7 @@
 import "../styles/layout.css";
 
 /* Importando componentes */
-import Head from "../layouts/Head.astro";
+import Head from "../components/Head.astro";
 import MainHeaderView from "../components/MainHeaderView.astro";
 import FooterView from "../components/FooterView.astro";
 import CookiesView from "../components/CookiesView.astro";
@@ -21,6 +21,7 @@ const {
 	visible,
 	blog,
 } = Astro.props;
+
 ---
 
 <html lang="es">
@@ -36,7 +37,7 @@ const {
 	/>
 
 	<body itemscope itemtype="https://schema.org/Person">
-		<MainHeaderView {title} {visible} {blog} {description} />
+		<MainHeaderView {title} {description} {visible} {blog}  />
 
 		<section id="main-content">
 			<slot />

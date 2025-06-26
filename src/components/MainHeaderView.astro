@@ -1,5 +1,5 @@
 ---
-const { title, visible, blog, description } = Astro.props;
+const { title, description, visible, blog } = Astro.props;
 ---
 
 <section class="container-logo-menu">
@@ -57,13 +57,13 @@ const { title, visible, blog, description } = Astro.props;
 
 <header id="main-header">
 	<div class="wrapper-h1-h2">
-	 {visible ? <h2 itemprop="name" class="title">{title}</h2>
-	 <h1 itemprop="jobTitle" class="subtitle">
-		 Soy
-		 <a href="designer/" title="Diseñador Gráfico">Diseñador Gráfico</a> y
-		 <a href="desarrollador-web/" title="Desarrollador Web front-end"
-			 >Desarrollador Web front-end</a>
-	 </h1> : <h1 class="title">{title} {blog && <h2 class="subtitle">{description}</h2>}</h1>}
+		{visible ? <h2 itemprop="name" class="title">{title}</h2>
+		<h1 itemprop="jobTitle" class="subtitle">
+			Soy
+			<a href="designer/" title="Diseñador Gráfico">Diseñador Gráfico</a> y
+			<a href="desarrollador-web/" title="Desarrollador Web front-end"
+				>Desarrollador Web front-end</a>
+		</h1> : <h1 class="title">{title} {blog && <h2 class="subtitle">{description}</h2>}</h1>}
  </div> 
 </header>
 

@@ -1,8 +1,8 @@
 # Edgar Cornejo
 
-Diseñador gráfico y desarrollador web.
+Graphic Designer and Web developer
 
-## Tecnologías
+## Languages
 
 - Astro
   - CSS / SCSS

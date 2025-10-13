@@ -1,11 +1,20 @@
-# Web
+# Edgar Cornejo
 
-Portafolio y blog
+Graphic Designer and Web developer
 
-# Tecnologías
+## Languages
 
 - Astro
   - CSS / SCSS
   - HTML / Markdown
   - TypeScript / JavaScript
 
+
+## Software
+
+- Windows
+- Visual Studio Code / Windsurf
+- Prepros
+- MAMP
+- GitHub Desktop
+- RIOT

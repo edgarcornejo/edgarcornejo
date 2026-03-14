@@ -1,11 +1,15 @@
 ---
-import { formatDate, slugify } from "../js/formateo";
-
 const { post } = Astro.props;
+
+export function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('es-PE', {
+    timeZone: "UTC",
+  })
+}
 ---
 
 <article>
-	<a href={`/publicaciones/${slugify(post.slug)}/`} title={post.data.title}>
+	<a href={`/publicaciones/${post.id}`} title={post.data.title}>
 		<h3>{post.data.title}</h3>
 
 		<figure>

@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 
-import { formatPost, slugify } from "../js/formateo";
-const publicaciones = await getCollection("publicaciones");
-const lista = formatPost(publicaciones);
+const posts = (await getCollection('publicaciones')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <p class="lista-enlaces">
 	{
-		lista.map((post: any, index: any) => {
+		posts.map((post: any, index: any) => {
 			const { slug, data } = post;
 			const { title } = data;
 			return index < 6 ? (
-				<a href={`/publicaciones/${slugify(slug)}/`} title={title}>
+				<a href={`/publicaciones/${post.id}`} title={title}>
 					{title}
 				</a>
 			) : null;

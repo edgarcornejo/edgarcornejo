@@ -481,7 +481,6 @@ address {
 		&::details-content {
 			transition: all .4s ease, content-visibility .4s allow-discrete;
 			overflow: clip;
-			height: 0;
 		}
 		&:nth-of-type(1) summary {
 			background: $blueDev-950;

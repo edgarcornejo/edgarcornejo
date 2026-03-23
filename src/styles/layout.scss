@@ -764,6 +764,9 @@ address {
 		&::marker {
 			color: $eRed;
 		}
+		a {
+			color: $blueDev-950;
+		}
 	}
 	figure {
 		display: flex;
